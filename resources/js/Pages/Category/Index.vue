@@ -10,7 +10,7 @@
           <span>Search</span>          
         </button>
       </div>     
-      <Link :href="route('category.create')" class="btn-primary flex" type="button">
+      <Link :href="route('category.create')" class="btn-primary flex" as="button">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
         </svg> 
@@ -70,7 +70,7 @@
         </template>
         <template v-else>
           <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center" colspan="4">
+            <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center" colspan="5">
               No data
             </td>            
           </tr>      
