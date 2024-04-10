@@ -47,7 +47,7 @@ const props = defineProps({
 const form = useForm({
   name: props.item.name ?? '',  
   category_id: props.item.category_id ?? '',  
-  price: props.item.price ?? '',  
+  price: props.item.price ? parseFloat(props.item.price) : '',  
   unit: props.item.unit ?? '',  
 })
 
