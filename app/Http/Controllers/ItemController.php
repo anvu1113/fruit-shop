@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\FruitCategory;
 use Illuminate\Support\Facades\DB;
 
-class Item extends Controller
+class ItemController extends Controller
 {
     public function index(Request $request)
     {      
@@ -20,7 +20,7 @@ class Item extends Controller
 
 
         return inertia(
-            'FruitItem/Index',
+            'Item/Index',
             [              
                 'filters' => $filters,
                 'items' => $items,
@@ -41,7 +41,7 @@ class Item extends Controller
         // }
 
         return inertia(
-            'FruitItem/CreateUpdate',
+            'Item/CreateUpdate',
             [             
                 'item' => $item,                           
                 'categories' => $categories,                           

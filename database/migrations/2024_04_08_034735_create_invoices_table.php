@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fruit_items', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedInteger('category_id');
-            $table->string('name', 100);
-            $table->unsignedDecimal('price', 12, 2)->default(0); 
-            $table->enum('unit', ['kg', 'pcs', 'pack']);   
+        Schema::create('invoices', function (Blueprint $table) {
+            $table->id();  
+            $table->unsignedInteger('customer_id');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fruit_items');
+        Schema::dropIfExists('invoices');
     }
 };

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\FruitCategory;
 use Illuminate\Support\Facades\DB;
 
-class Category extends Controller
+class CategoryController extends Controller
 {
     public function index(Request $request)
     {      

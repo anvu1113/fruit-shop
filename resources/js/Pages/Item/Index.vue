@@ -3,7 +3,7 @@
     <div class="mb-8 mt-4 flex justify-end gap-2">       
       <div class="flex">
         <input v-model="filterForm.name" type="text" placeholder="Search by name" class="w-full md:w-80 px-3 h-10 rounded-l border-gray-200 focus:outline-none focus:border-gray-400" />
-        <button type="submit" class="bg-indigo-600 text-white rounded-r px-2 md:px-3 py-0 md:py-2 w-24 flex align-middle">
+        <button type="submit" class="bg-indigo-600 text-white rounded-r px-2 md:px-3 py-0 md:py-2 w-24 flex align-middle font-medium">
           <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
           </svg>
@@ -23,7 +23,7 @@
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
           <th scope="col" class="px-6 py-3 text-right w-48">
-            Numerical order
+            No
           </th>
           <th scope="col" class="px-6 py-3">
             Name

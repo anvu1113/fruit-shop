@@ -7,7 +7,7 @@
         <div v-if="form.errors.name" class="input-error">{{ form.errors.name }}</div>
       </div>      
       <div class="mt-4">
-        <button class="btn-primary w-full" type="submit">Save</button>       
+        <button class="btn-primary w-full" type="submit" :disabled="isSubmitting">Save</button>       
       </div>
     </div>
   </form>

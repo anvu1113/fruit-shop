@@ -27,10 +27,10 @@
           <option value="pcs">Pcs</option>
           <option value="pack">Pack</option>
         </select>
-        <div v-if="form.errors.category_id" class="input-error">{{ form.errors.category_id }}</div>
+        <div v-if="form.errors.unit" class="input-error">{{ form.errors.unit }}</div>
       </div>    
       <div class="mt-4">
-        <button class="btn-primary w-full" type="submit">Save</button>       
+        <button class="btn-primary w-full" type="submit" :disabled="isSubmitting">Save</button>       
       </div>
     </div>
   </form>

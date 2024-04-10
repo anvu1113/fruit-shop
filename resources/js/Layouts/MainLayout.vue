@@ -43,6 +43,20 @@
                     <p class="mt-1 text-gray-600">View list fruit items</p>          
                   </div>
                 </div>               
+                <div class="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
+                  <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 text-gray-600 group-hover:text-indigo-600">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <Link :href="route('invoice.index')" class="font-semibold text-gray-900">
+                      Invoices
+                      <span class="absolute inset-0" />
+                    </Link>    
+                    <p class="mt-1 text-gray-600">View list invoices</p>          
+                  </div>
+                </div>               
               </div>               
             </div>
           </div>
@@ -97,4 +111,14 @@ const isShowMenu = ref(false)
 router.on('success', (event) => {
   isShowMenu.value = false
 })
+
+const handleCloseModal = (event) => {
+  // Kiểm tra xem phần tử được click có thuộc vào một trong các modal không
+  if (
+    event.target.classList.contains('modal-box')    
+  ) {
+    // Ẩn modal bằng cách gán style display là none
+    event.target.style.display = 'none'
+  }
+}
 </script>

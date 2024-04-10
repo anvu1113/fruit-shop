@@ -2,20 +2,11 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Category;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\IndexController;
-use App\Http\Controllers\Item;
-use App\Http\Controllers\ListingController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\UserAccountController;
-use App\Http\Controllers\ListingOfferController;
-use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\RealtorListingController;
-use App\Http\Controllers\NotificationSeenController;
-use Illuminate\Notifications\Events\NotificationSent;
-use App\Http\Controllers\RealtorListingImageController;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use App\Http\Controllers\RealtorListingAcceptOfferController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,29 +24,42 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::prefix('category')
 ->middleware('auth')
 ->group(function () {
-  Route::get('', [Category::class, 'index'])->name('category.index');
-  Route::get('/index', [Category::class, 'index'])->name('category.index');
-  Route::get('/create', [Category::class, 'createEdit'])->name('category.create');
-  Route::get('/edit/{category}', [Category::class, 'createEdit'])->name('category.edit');
-  Route::post('/save', [Category::class, 'saveUpdate'])->name('category.save');
-  Route::post('/update/{category}', [Category::class, 'saveUpdate'])->name('category.update');  
-  Route::delete('delete/{category}', [Category::class, 'destroy'])->name('category.destroy');
+  Route::get('', [CategoryController::class, 'index'])->name('category.index');
+  Route::get('/index', [CategoryController::class, 'index'])->name('category.index');
+  Route::get('/create', [CategoryController::class, 'createEdit'])->name('category.create');
+  Route::get('/edit/{category}', [CategoryController::class, 'createEdit'])->name('category.edit');
+  Route::post('/save', [CategoryController::class, 'saveUpdate'])->name('category.save');
+  Route::post('/update/{category}', [CategoryController::class, 'saveUpdate'])->name('category.update');  
+  Route::delete('delete/{category}', [CategoryController::class, 'destroy'])->name('category.destroy');
 });
+
 Route::prefix('item')
 ->middleware('auth')
 ->group(function () {
-  Route::get('', [Item::class, 'index'])->name('item.index');
-  Route::get('/index', [Item::class, 'index'])->name('item.index');
-  Route::get('/create', [Item::class, 'createEdit'])->name('item.create');
-  Route::get('/edit/{item}', [Item::class, 'createEdit'])->name('item.edit');
-  Route::post('/save', [Item::class, 'saveUpdate'])->name('item.save');
-  Route::post('/update/{item}', [Item::class, 'saveUpdate'])->name('item.update');  
-  Route::delete('delete/{item}', [Item::class, 'destroy'])->name('item.destroy');
+  Route::get('', [ItemController::class, 'index'])->name('item.index');
+  Route::get('/index', [ItemController::class, 'index'])->name('item.index');
+  Route::get('/create', [ItemController::class, 'createEdit'])->name('item.create');
+  Route::get('/edit/{item}', [ItemController::class, 'createEdit'])->name('item.edit');
+  Route::post('/save', [ItemController::class, 'saveUpdate'])->name('item.save');
+  Route::post('/update/{item}', [ItemController::class, 'saveUpdate'])->name('item.update');  
+  Route::delete('delete/{item}', [ItemController::class, 'destroy'])->name('item.destroy');
+});
+
+Route::prefix('invoice')
+->middleware('auth')
+->group(function () {
+  Route::get('', [InvoiceController::class, 'index'])->name('invoice.index');
+  Route::get('/index', [InvoiceController::class, 'index'])->name('invoice.index');
+  Route::get('/create', [InvoiceController::class, 'createEdit'])->name('invoice.create');
+  Route::get('/edit/{invoice}', [InvoiceController::class, 'createEdit'])->name('invoice.edit');
+  Route::post('/save', [InvoiceController::class, 'saveUpdate'])->name('invoice.save');
+  Route::post('/update/{invoice}', [InvoiceController::class, 'saveUpdate'])->name('invoice.update');  
+  Route::delete('delete/{invoice}', [InvoiceController::class, 'destroy'])->name('invoice.destroy');
+  Route::post('/save-customer', [InvoiceController::class, 'saveCustomer'])->name('customer.save');
+  Route::get('/review-pdf/{invoice}', [InvoiceController::class, 'reviewPdf'])->name('invoice.generate-pdf');
 });
 
 
-Route::get('/hello', [IndexController::class, 'show'])
-  ->middleware('auth');
 
 Route::get('login', [AuthController::class, 'create'])
   ->name('login');

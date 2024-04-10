@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fruit_items', function (Blueprint $table) {
+        Schema::create('invoice_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('category_id');
-            $table->string('name', 100);
-            $table->unsignedDecimal('price', 12, 2)->default(0); 
-            $table->enum('unit', ['kg', 'pcs', 'pack']);   
+            $table->unsignedInteger('invoice_id');
+            $table->unsignedInteger('item_id');          
+            $table->unsignedInteger('quantity');
+            $table->unsignedDecimal('total_price', 12, 2)->default(0); 
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fruit_items');
+        Schema::dropIfExists('invoice_details');
     }
 };

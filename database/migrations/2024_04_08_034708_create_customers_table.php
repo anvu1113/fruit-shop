@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('fruit_items', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('category_id');
             $table->string('name', 100);
-            $table->unsignedDecimal('price', 12, 2)->default(0); 
-            $table->enum('unit', ['kg', 'pcs', 'pack']);   
+            $table->string('phone_number', 25);
+            $table->string('address', 100);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fruit_items');
+        Schema::dropIfExists('customers');
     }
 };
